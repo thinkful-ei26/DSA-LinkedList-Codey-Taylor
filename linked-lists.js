@@ -27,6 +27,27 @@ class LinkedList {
         }
     }
 
+    insertBefore(itemToInsert, item){
+        let currNode = this.head;
+        if (!this.head){
+            return null;
+        }
+        while(currNode.next !== null){
+             
+            if(currNode.next.value === item) {
+                console.log(currNode.next.next)
+                
+                currNode= new _Node(itemToInsert, currNode.next )
+                
+                console.log(currNode);
+            }
+            
+            currNode = currNode.next;
+        }
+    }
+    // ('hotdog', 'Helo')
+    // ['Apollo', 'Boomer', 'Helo', 'Husker', 'Starbuck']
+
     find(item) { 
         //start at the head
         let currNode = this.head;
@@ -49,6 +70,7 @@ class LinkedList {
         //found it
         return currNode;
     }
+
 
     remove(item){ 
         //if the list is empty
@@ -83,13 +105,15 @@ const main = items => {
     const SLL = new LinkedList;
     items.map(item => SLL.insertLast(item))
 
-    SLL.insertFirst('Tauhida');
-    console.log(SLL.find('Tauhida'));
+    // SLL.insertFirst('Tauhida');
+    // console.log(SLL.find('Tauhida'));
 
-    SLL.remove('squirrel');
+    // SLL.remove('squirrel');
+    // SLL.remove('Boomer');
 
-    SLL.remove('Boomer');
+    SLL.insertBefore('Hot dog', 'Helo')
+    console.log(SLL.find('Boomer'))
 
     return SLL;
 }
-console.log(main(items));
+main(items);
