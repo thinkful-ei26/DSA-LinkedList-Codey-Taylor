@@ -37,12 +37,12 @@ class LinkedList {
             if(currNode.next.value === item) {
                 console.log(currNode.next.next)
                 
-                currNode= new _Node(itemToInsert, currNode.next )
+                currNode.next= new _Node(itemToInsert, currNode.next.next )
                 
                 console.log(currNode);
             }
             
-            currNode = currNode.next;
+            currNode = itemToInsert;
         }
     }
     // ('hotdog', 'Helo')
